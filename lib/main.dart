@@ -24,7 +24,14 @@ class PicSonic extends StatelessWidget {
   }
 }
 
-class PicSonicState extends ChangeNotifier {}
+class PicSonicState extends ChangeNotifier {
+  List todos = [];
+
+  void addTodo(todoGiven) {
+    todos.add(todoGiven);
+    print(todos);
+  }
+}
 
 class ToDosView extends StatefulWidget {
   const ToDosView({super.key, required this.title});
@@ -74,13 +81,18 @@ class ToDoInput extends StatelessWidget {
                 ),
               ),
               style: const TextStyle(
-                color: Color(0xFF1A0554),
-                fontSize: 20,
+                color: Color(0xFF0C0B13),
+                fontSize: 16,
               ),
               controller: _toDoInputController,
             ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+          IconButton(
+              onPressed: () {
+                String todoGiven = _toDoInputController.text;
+                appState.addTodo(todoGiven);
+              },
+              icon: const Icon(Icons.add))
         ],
       ),
     );
