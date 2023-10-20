@@ -10,17 +10,21 @@ class PicSonic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'PicSonic',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (context) => PicSonicState(),
+      child: MaterialApp(
+        title: 'PicSonic',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const ToDosView(title: 'PicSonic'),
       ),
-      home: const ToDosView(title: 'PicSonic'),
     );
-    ;
   }
 }
+
+class PicSonicState extends ChangeNotifier {}
 
 class ToDosView extends StatefulWidget {
   const ToDosView({super.key, required this.title});
@@ -34,6 +38,8 @@ class ToDosView extends StatefulWidget {
 class _ToDosViewState extends State<ToDosView> {
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<PicSonicState>();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF1A0554),
@@ -54,6 +60,7 @@ class ToDoInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<PicSonicState>();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
