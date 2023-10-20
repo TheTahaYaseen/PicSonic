@@ -29,7 +29,6 @@ class PicSonicState extends ChangeNotifier {
 
   void addTodo(todoGiven) {
     todos.add(todoGiven);
-    print(todos);
   }
 }
 
@@ -96,5 +95,15 @@ class ToDoInput extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ToDoList extends StatelessWidget {
+  const ToDoList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<PicSonicState>();
+    return Container();
   }
 }
