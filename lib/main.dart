@@ -32,6 +32,13 @@ class ToDosView extends StatefulWidget {
 class _ToDosViewState extends State<ToDosView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF1A0554),
+        foregroundColor: Colors.white,
+        title: const Text("Your ToDos"),
+        leading: const Icon(Icons.check_circle_outline_rounded),
+      ),
+    );
   }
 }
