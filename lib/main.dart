@@ -31,6 +31,11 @@ class PicSonicState extends ChangeNotifier {
     todos.add(todoGiven);
     notifyListeners();
   }
+
+  void removeTodo(todoGiven) {
+    todos.remove(todoGiven);
+    notifyListeners();
+  }
 }
 
 class ToDosView extends StatefulWidget {
@@ -111,7 +116,27 @@ class ToDoList extends StatelessWidget {
       child: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (context, index) {
-          return Text(todos[index]);
+          return Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      appState.removeTodo(todos[index]);
+                    },
+                    icon: const Icon(Icons.check)),
+                Expanded(
+                  child: Text(
+                    todos[index],
+                    style: const TextStyle(
+                      color: Color(0xFF0C0B13),
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ),
     );
