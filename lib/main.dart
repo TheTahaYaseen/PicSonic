@@ -107,7 +107,7 @@ class ToDoList extends StatelessWidget {
     var appState = context.watch<PicSonicState>();
     var todos = appState.todos;
 
-    return Container(
+    return Expanded(
       child: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (context, index) {
