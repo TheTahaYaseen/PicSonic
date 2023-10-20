@@ -29,6 +29,7 @@ class PicSonicState extends ChangeNotifier {
 
   void addTodo(todoGiven) {
     todos.add(todoGiven);
+    notifyListeners();
   }
 }
 
@@ -104,6 +105,15 @@ class ToDoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<PicSonicState>();
-    return Container();
+    var todos = appState.todos;
+
+    return Container(
+      child: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          return Text(todos[index]);
+        },
+      ),
+    );
   }
 }
