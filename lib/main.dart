@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const PicSonic());
@@ -17,6 +18,7 @@ class PicSonic extends StatelessWidget {
       ),
       home: const ToDosView(title: 'PicSonic'),
     );
+    ;
   }
 }
 
