@@ -39,6 +39,41 @@ class _ToDosViewState extends State<ToDosView> {
         title: const Text("Your ToDos"),
         leading: const Icon(Icons.check_circle_outline_rounded),
       ),
+      body: Column(
+        children: [ToDoInput()],
+      ),
+    );
+  }
+}
+
+class ToDoInput extends StatelessWidget {
+  ToDoInput({super.key});
+  final TextEditingController _toDoInputController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              decoration: const InputDecoration(
+                hintText: "Your Todo",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+              ),
+              style: const TextStyle(
+                color: Color(0xFF1A0554),
+                fontSize: 20,
+              ),
+              controller: _toDoInputController,
+            ),
+          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+        ],
+      ),
     );
   }
 }
