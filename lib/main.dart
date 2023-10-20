@@ -55,7 +55,7 @@ class _ToDosViewState extends State<ToDosView> {
         leading: const Icon(Icons.check_circle_outline_rounded),
       ),
       body: Column(
-        children: [ToDoInput()],
+        children: [ToDoInput(), const ToDoList()],
       ),
     );
   }
