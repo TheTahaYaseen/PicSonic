@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const PicSonic());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PicSonic extends StatelessWidget {
+  const PicSonic({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +15,21 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'PicSonic'),
+      home: const ToDosView(title: 'PicSonic'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class ToDosView extends StatefulWidget {
+  const ToDosView({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<ToDosView> createState() => _ToDosViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ToDosViewState extends State<ToDosView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold();
