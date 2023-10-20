@@ -25,7 +25,7 @@ class PicSonic extends StatelessWidget {
 }
 
 class PicSonicState extends ChangeNotifier {
-  List todos = [];
+  Map<String, String> todos = {};
 
   void addTodo(todoGiven) {
     todos.add(todoGiven);
